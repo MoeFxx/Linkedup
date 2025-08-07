@@ -1,0 +1,28 @@
+{
+  "name": "linkedup-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "echo \"No tests\""
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.13",
+    "axios": "^1.6.0",
+    "googleapis": "^131.0.0",
+    "next": "^13.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.0",
+    "@types/react": "^18.2.21",
+    "eslint": "^8.48.0",
+    "eslint-config-next": "^13.5.0",
+    "typescript": "^5.2.2"
+  }
+}
