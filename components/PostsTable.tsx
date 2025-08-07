@@ -11,6 +11,7 @@ import {
   Paper,
 } from '@mui/material';
 
+
 export interface Post {
   name: string;
   idea: string;
@@ -69,5 +70,5 @@ export default function PostsTable({ posts, onStatusChange }: Props) {
         </TableBody>
       </Table>
     </TableContainer>
-  );
+
 }
