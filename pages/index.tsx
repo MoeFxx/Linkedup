@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Container, Typography, Button } from '@mui/material';
 import PostsTable, { Post } from '../components/PostsTable';
+import Stats from '../components/Stats';
+
 
 export default function Home() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -25,11 +27,30 @@ export default function Home() {
     setLoading(false);
   }
 
+  async function handleStatusChange(name: string, status: string) {
+    await axios.post('/api/status', { name, status });
+    setPosts((prev) =>
+      prev.map((p) => (p.name === name ? { ...p, status } : p))
+    );
+  }
+
+
   return (
     <Container sx={{ mt: 4 }}>
       <Typography variant="h4" gutterBottom>
         LinkedIn Content Dashboard
       </Typography>
+      <Button
+        variant="contained"
+        onClick={handleGenerate}
+        disabled={loading}
+        sx={{ mb: 2 }}
+      >
+        Generate New Post
+      </Button>
+      <Stats review={summary.review} ready={summary.ready} posted={summary.posted} />
+      <PostsTable posts={posts} onStatusChange={handleStatusChange} />
+
       <Button variant="contained" onClick={handleGenerate} disabled={loading} sx={{ mb: 2 }}>
         Generate New Post
       </Button>
